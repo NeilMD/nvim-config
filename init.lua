@@ -224,9 +224,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'javascript', 'typescript' },
   callback = function()
-    vim.opt_local.tabstop = 5
-    vim.opt_local.shiftwidth = 5
+    vim.opt_local.tabstop = 3
+    vim.opt_local.shiftwidth = 3
     vim.opt_local.expandtab = true
+    vim.opt_local.autoindent = true
+    vim.opt_local.smartindent = true
   end,
 })
 
@@ -423,6 +425,9 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          path_display = { 'smarts' },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
